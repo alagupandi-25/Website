@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout.html}">
+	<body>
+		
+		<!-- Navbar & Hero Start -->
+		<div layout:fragment = "navbar" class="container-fluid py-5 position-relative p-0">
+		    
+			<nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+				<a href="" class="navbar-brand p-0">
+		            <h2 class="text-primary"><img src="">EDII-MAFBIF</h2>
+				</a>
+		        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		            <span class="fa fa-bars"></span>
+		        </button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+		            <div class="navbar-nav ms-auto py-0">
+		                <a th:href="@{/}" class="nav-item nav-link active">Home</a>
+		                <a th:href="@{/about}" class="nav-item nav-link">About Us</a>
+		               	<a th:href="@{/incubatore}" class="nav-item nav-link">Incubator</a>
+		                <a th:href="@{/services}" class="nav-item nav-link">Services</a>
+		                <a th:href="@{/technology}" class="nav-item nav-link">Technology</a>
+		                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+		            </div>
+				</div>
+		</div>
+		<!-- Navbar & Hero End -->
+		
+		<div layout:fragment = "content">
+			<div class="container-fluid service row py-5 pb-5">
+			            <div class="col-xl-4  container-fluid offer-section pb-5">
+			                <div class="container pb-5 ">
+			                    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" >
+			                        <h4 class="text-primary">Recent Updates</h4>
+			                    </div>
+			                    <div class="g-5 align-items-center " style="max-width:  800px; max-height: 500px;">
+			                        <div class="wow fadeInLeft " data-wow-delay="0.2s">
+			                            <div class="nav nav-pills bg-light rounded">
+			                                <a class="accordion-link p-4 my-2 mx-2" data-bs-toggle="pill">
+			                                    <h5 class="mb-0">Event - 1</h5>
+			                                </a>
+			                                <a class="accordion-link p-4 my-2 mx-2" data-bs-toggle="pill">
+			                                    <h5 class="mb-0">Event - 2</h5>
+			                                </a>
+			                                <a class="accordion-link p-4 my-2 mx-2" data-bs-toggle="pill">
+			                                    <h5 class="mb-0">Event - 3</h5>
+			                                </a>
+			                                <a class="accordion-link p-4 my-2 mx-2" data-bs-toggle="pill">
+			                                    <h5 class="mb-0">Event - 4</h5>
+			                                </a>
+			                                <a class="accordion-link p-4 my-2 mx-2" data-bs-toggle="pill">
+			                                    <h5 class="mb-0">Event - 5</h5>
+			                                </a>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			            <div class="col-xl-8 pb-5">
+			                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+			                    <h1 class="display-5 mb-4">Our Services</h1>
+			                    </p>
+			                </div>
+			                <div class="row g-4 d-flex justify-content-center">
+			                    <div class="col-md-6 col-lg-4 wow fadeInDown" data-wow-delay="0.2s">
+			                        <div class="service-item">
+			                            <div class="service-img">
+			                                <img src="img/service.jpeg" class="img-fluid rounded-top w-100" alt="Image">
+			                            </div>
+			                            <div class="rounded-bottom p-4">
+			                                <p class="h6 d-inline-block mb-4">Mentoring, Networking and Capacity Building</p>
+			                                <a class="btn btn-primary rounded-pill py-2 px-4" href="Services.html">Learn More</a>
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+			                        <div class="service-item">
+			                            <div class="service-img">
+			                                <img src="img/service.jpeg" class="img-fluid rounded-top w-100" alt="Image">
+			                            </div>
+			                            <div class="rounded-bottom p-4">
+			                                <p class="h6 d-inline-block mb-4">Financial Services</p>
+			                                <a class="btn btn-primary rounded-pill py-2 px-4" href="Services.html">Learn More</a>
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+			                        <div class="service-item">
+			                            <div class="service-img">
+			                                <img src="img/service.jpeg" class="img-fluid rounded-top w-100" alt="Image">
+			                            </div>
+			                            <div class="rounded-bottom p-4">
+			                                <p class="h6 d-inline-block mb-4">Marketing, Public Relations &amp; Sales</p>
+			                                <a class="btn btn-primary rounded-pill py-2 px-4" href="Services.html">Learn More</a>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- Services End -->
+					
+					<!-- Features Start -->
+					       <div class="container-fluid feature pb-5">
+					           <div class="container pb-5">
+					               <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+					                   <h1 class="display-5 mb-4">Our Technology</h1>
+					                   <h4 class="text-primary">Pioneer Technologies</h4>
+					               </div>
+					               <div class="row g-4">
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-chart-line fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Biomass Briquetting and Pelleting Technology</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-university fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Activated Carbon Generation</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-file-alt fa-4x text-primary"></i>
+					                           </div>
+					                           <h4  class="my-4">Wood Value Addition Technology</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-hand-holding-usd fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Oil Extraction from Tree Borne Oil Seeds</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					               </div>
+					               <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+					                   <h4 class="text-primary my-5">Supporting Technologies</h4>
+					               </div>
+					               <div class="row g-4">
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-chart-line fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Tall Seedling Production</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-university fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Tree Burlapping Technology</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-file-alt fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">Cocoon Craft Technology</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					                   <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+					                       <div class="feature-item p-4">
+					                           <div class="feature-icon p-4 mb-4">
+					                               <i class="fas fa-hand-holding-usd fa-4x text-primary"></i>
+					                           </div>
+					                           <h4 class="my-4">ITKs Validation</h4>
+					                           <a class="btn btn-primary rounded-pill py-2 px-4" href="technology.html">Learn More</a>
+					                       </div>
+					                   </div>
+					               </div>
+					           </div>
+					       </div>
+					       <!-- Features End -->
+
+		</div>
+	</body>
+	
+</html>
