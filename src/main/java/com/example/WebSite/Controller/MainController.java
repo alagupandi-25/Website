@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.WebSite.Models.Services;
+import com.example.WebSite.Models.Technology;
 import com.example.WebSite.Service.ServiceSection;
+import com.example.WebSite.Service.TechnologySection;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,6 +22,8 @@ public class MainController {
 	
 	@Autowired
 	private ServiceSection serviceService;
+	@Autowired
+	private TechnologySection technologyService;
 	
 	@GetMapping
 	public String getIndex(HttpServletRequest request, Model model) {
@@ -42,21 +46,28 @@ public class MainController {
 	@GetMapping("services")
 	public String services(HttpServletRequest request, Model model) {
 		try {
-			ArrayList<Services> services = (ArrayList<Services>) serviceService.getAllServices();
+			ArrayList<Services> services = serviceService.getAllServices();
 			model.addAttribute("request", request);
-			model.addAllAttributes(services);
-			System.out.println(services.size());
+			model.addAttribute("services", services);
 			return "services";
 		}
 		catch (Exception e) {
-			return  "error ouccred";
+			return  "error occurred";
 		}
-		
 	}
 	
 	@GetMapping("technology")
 	public String technology(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		return "technology";
+		try {
+			ArrayList<Technology> pioneer = technologyService.getPioneerTechnologies();
+			ArrayList<Technology> support = technologyService.getSupportTechnologies();
+			model.addAttribute("request", request);
+			model.addAttribute("pioneer", pioneer);
+			model.addAttribute("support", support);
+			return "technology";
+		}
+		catch (Exception e) {
+			return  "error occurred";
+		}
 	}
 }

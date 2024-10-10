@@ -1,6 +1,6 @@
 package com.example.WebSite.Service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +11,16 @@ import com.example.WebSite.Repository.ServiceRepository;
 @Service
 public class ServiceSection {
 	
-	@Autowired
-	ServiceRepository servicesRepo;
+	private ServiceRepository servicesRepo;
 	
-	public List<Services> getAllServices() throws Exception{
+	@Autowired
+	public ServiceSection(ServiceRepository servicesRepo) {
+		this.servicesRepo =  servicesRepo;
+	}
+	
+	public ArrayList<Services> getAllServices() throws Exception{
 		return servicesRepo.findAll();
 	}
+	
+	
 }

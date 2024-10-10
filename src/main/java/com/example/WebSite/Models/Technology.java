@@ -31,7 +31,7 @@ public class Technology {
 		
 		@Enumerated(EnumType.STRING)
 		@Column(nullable = false)
-		private TechnologyType Type;
+		private TechnologyType type;
 		
 		@Column(columnDefinition = "TEXT")
 		private String content;
@@ -55,11 +55,11 @@ public class Technology {
 		}
 
 		public TechnologyType getType() {
-			return Type;
+			return this.type;
 		}
 
 		public void setType(TechnologyType type) {
-			Type = type;
+			this.type = type;
 		}
 
 		public String getContent() {
