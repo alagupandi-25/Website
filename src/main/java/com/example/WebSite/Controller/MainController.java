@@ -27,10 +27,20 @@ public class MainController {
 	
 	@GetMapping
 	public String getIndex(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		return "index";
+		try {
+			ArrayList<Services> services = serviceService.getAllServices();
+			ArrayList<Technology> pioneer = technologyService.getPioneerTechnologies();
+			ArrayList<Technology> support = technologyService.getSupportTechnologies();
+			model.addAttribute("services", services);
+			model.addAttribute("pioneer", pioneer);
+			model.addAttribute("support", support);
+			model.addAttribute("request", request);
+			return "index";
+		}
+		catch (Exception e) {
+			return  "error occurred";
+		}
 	}
-	
 	@GetMapping("about")
     public String about(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
