@@ -1,5 +1,6 @@
 package com.example.WebSite.Config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,16 +10,20 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.example.WebSite.Service.CustomUserDetailsService;
+import com.example.WebSite.Repository.UserRepository;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+	
+	@Autowired
+	UserRepository userepo;
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -33,18 +38,22 @@ public class SecurityConfig {
 		return http.build();
 	}
     
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Bean
+	PasswordEncoder passwordEncoder() { 
+		 return new BCryptPasswordEncoder(); 
+	}
 
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsService();
-    }
+    @Bean
+    UserDetailsService userDetailsService() {
+		    return username -> userepo.findByEmail(username)
+		        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+	}
 
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
-        return authenticationManagerBuilder.build();
-    }
+    @Bean
+    AuthenticationManager authenticationManager(HttpSecurity http) throws Exception { 
+		 AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+		 authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder()); 
+		 return authenticationManagerBuilder.build(); 
+	}
     
 }
