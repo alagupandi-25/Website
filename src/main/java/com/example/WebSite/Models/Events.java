@@ -1,9 +1,12 @@
 package com.example.WebSite.Models;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +15,11 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -25,8 +32,7 @@ public class Events {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column(nullable = false)
+
 	private String title;
 	
 	@Column(columnDefinition = "TEXT")
@@ -39,16 +45,22 @@ public class Events {
 	@Column(nullable = false)
 	private EventStatus status;
 	
-	@Column(nullable = false)
+	@ManyToMany
+	@JoinTable(
+	    name = "Events_file",
+	    joinColumns = @JoinColumn(name = "Event_id"),
+	    inverseJoinColumns = @JoinColumn(name = "file_id")
+	
+	)
+	private HashSet<FileModel> files;
+	
 	private LocalDateTime eventdate;
 	
-	@Column(nullable = false)
 	private int totaldays;
-	
-	@Column(length = 20)
+
 	private String phoneNumber;
 	
-	@Column(nullable = false, length = 100)
+	
 	private String email;
 	
 	@CreatedDate
@@ -89,6 +101,15 @@ public class Events {
 	public void setStatus(EventStatus status) {
 		this.status = status;
 	}
+	
+	public HashSet<FileModel> getFiles() {
+		return files;
+	}
+
+	public void setFiles(HashSet<FileModel> files) {
+		this.files = files;
+	}
+
 
 	public LocalDateTime getEventdate() {
 		return eventdate;
@@ -110,8 +131,8 @@ public class Events {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhoneNumber(Long phonenumber) {
+		this.phoneNumber = Long.toString(phonenumber);
 	}
 
 	public String getEmail() {

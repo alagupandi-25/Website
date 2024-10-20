@@ -26,4 +26,8 @@ public class TechnologySection {
 	public ArrayList<Technology> getSupportTechnologies() throws Exception{
 		return techRepository.findByType(TechnologyType.Supporting);
 	}
+	
+	public ArrayList<Technology> getAllTechnologies() throws Exception{
+		return techRepository.findAll();
+	}
 }

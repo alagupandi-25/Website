@@ -16,7 +16,7 @@
 			            	<th:block th:each="pioneerObj : ${pioneer}">
 								<div>
 									<h4 th:text = "${pioneerObj.name}" class="text-primary mb-4"></h4>
-									<p th:text = "${pioneerObj.content}" class="mb-4 textjustify"></p>
+									<p th:utext = "${pioneerObj.content}" class="mb-4 textjustify"></p>
 								</div>
 							</th:block>
 						</div>
@@ -31,13 +31,9 @@
 					</div>
 					<div class="g-5 align-items-center">
 						 <div class="wow fadeInLeft" data-wow-delay="0.2s">
-							<h4 class="text-primary mb-4">1.Tall Seedling Production</h4>
-							<h4 class="text-primary mb-4">2.Tree Burlapping Technology</h4>
-							<h4 class="text-primary mb-4">3.Cocoon Craft Technology</h4>
-							<h4 class="text-primary mb-4">4.ITKs Validation</h4>
-							<h4 class="text-primary mb-4">5.Timber Digital Trade</h4>
-							<h4 class="text-primary mb-4">6.Medicinal Products</h4>
-							<h4 class="text-primary mb-4">7.Non-Wood Forest Products</h4>
+							<th:block th:each="supportObj : ${support}">
+									<h4 th:text = "${supportObj.name}" class="text-primary mb-4"></h4>
+							</th:block>
 						</div>
 					</div>
 				</div>

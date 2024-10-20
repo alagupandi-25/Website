@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{AdminLayout.html}">
+<head>
+    <title>Technology List</title>
+</head>
+<body>
+	<section layout:fragment = "content" class="section">
+	           <div class="container col-xl-12">
+	               <div class="card top-selling overflow-auto">
+					       <div class="card-body pb-0">
+					           <h5 class="card-title">Services <span>| list</span></h5>
+					           <table class="table table-borderless">
+					               <thead>
+					                   <tr>
+					                       <th scope="col"></th>
+					                       <th scope="col">Name</th>
+										   <th scope="col">Type</th>
+					                       <th scope="col">Created at</th>
+					                       <th scope="col"></th>
+					                       <th scope="col"></th>
+					                   </tr>
+					               </thead>
+					               <tbody>
+									<th:block th:each="technologyObj : ${technologies}">
+					                   <tr>
+					                       <th scope="row"><a href="#"><img  th:src="@{img/carousel-1.jpg}" alt="imag"></a></th>
+					                       <td><a href="#" th:text="${technologyObj.name}" class="text-primary fw-bold"></a></td>
+										   <td th:text="${technologyObj.type.name()}"></td>
+										   <td th:text="${technologyObj.createdate}"></td>
+					                       <td><button type="button" class="btn btn-outline-primary">update</button></td>
+					                       <td><button type="button" class="btn btn-outline-danger">delete</button></td>
+					                   </tr>
+									 </th:block>
+					               </tbody>
+					           </table>
+					       </div>
+					   </div>
+	           </div>
+	       </section>
+</body>
+</html>

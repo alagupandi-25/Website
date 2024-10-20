@@ -80,4 +80,10 @@ public class MainController {
 			return  "error occurred";
 		}
 	}
+	
+	@GetMapping("error")
+	public String error(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		return "Error";
+	}
 }

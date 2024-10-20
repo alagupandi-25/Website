@@ -1,8 +1,9 @@
 package com.example.WebSite.Models;
 
 public enum EventStatus {
-	 PENDING,
-	 ONGOING,
-	 COMPLETED,
-	 CANCELLED
+	 Pendigng,
+	 Ongoing,
+	 Completed,
+	 Cancelled,
 }
+
