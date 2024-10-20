@@ -21,7 +21,7 @@ public class EventsSection {
 	    Events event = new Events();
 	    event.setTitle(eventForm.getTitle());
 	    event.setDescription(eventForm.getDescription());
-	    event.setStatus(EventStatus.Pendigng); 
+	    event.setStatus(EventStatus.valueOf(eventForm.getStatus())); 
 	    event.setLink("www.website.com");
 	    event.setEventdate(eventForm.getEventdate());
 	    event.setTotaldays(eventForm.getTotaldays());
